@@ -1,6 +1,6 @@
 var Reflux = require('reflux');
-var Api = require('../utils/api');
 var Actions = require('../actions');
+var Api = require('../utils/api');
 
 module.exports = Reflux.createStore({
   listenables: [Actions],
@@ -8,7 +8,6 @@ module.exports = Reflux.createStore({
     Api.get('gallery/' + id + '/comments')
       .then(function(json){
         this.comment = json.data;
-
         this.triggerChange();
       }.bind(this));
   },
